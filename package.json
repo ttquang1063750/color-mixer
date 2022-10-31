@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prettier:write": "npx prettier --write ./src/**/*.{ts,html,scss}"
+    "prettier:write": "npx prettier --write ./src/**/*.{ts,html,scss}",
+    "deploy": "ng deploy --base-href=/color-mixer/"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "@angular/compiler-cli": "^14.2.0",
     "@types/chroma-js": "^2.1.4",
     "@types/jasmine": "~4.0.0",
+    "angular-cli-ghpages": "^1.0.3",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
