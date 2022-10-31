@@ -1,8 +1,16 @@
 <div class="container">
   <h1 class="title">Color Mixer</h1>
-  <div class="flex row color-mixer">
+  <div
+    class="flex row color-mixer"
+    cdkDropList
+    cdkDropListSortingDisabled
+    [cdkDropListData]="colors"
+    (cdkDropListDropped)="drop($event)"
+  >
     <div
-      class="color-material__column flex row center"
+      cdkDrag
+      cdkDragLockAxis="y"
+      class="color-mixer__column flex row center"
       *ngFor="let color of colors; let i = index"
       [style.background-color]="color"
       [style.color]="color | colorContrast"

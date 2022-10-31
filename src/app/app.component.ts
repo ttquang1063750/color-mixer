@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import chroma from 'chroma-js';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-root',
@@ -74,5 +75,9 @@ export class AppComponent {
 
   removeSharp(s: string): string {
     return s.replace('#', '');
+  }
+
+  drop(event: CdkDragDrop<string[]>): void {
+    this.colors.splice(event.currentIndex, 1);
   }
 }
