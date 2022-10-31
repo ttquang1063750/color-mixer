@@ -78,6 +78,10 @@ export class AppComponent {
   }
 
   drop(event: CdkDragDrop<string[]>): void {
-    this.colors.splice(event.currentIndex, 1);
+    const y = Math.abs(event.distance.y);
+    const h = event.container.element.nativeElement.offsetHeight;
+    if (y >= h) {
+      this.colors.splice(event.currentIndex, 1);
+    }
   }
 }

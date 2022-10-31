@@ -23,20 +23,6 @@
     }
   }
 
-  .controls {
-    padding: 0 10px;
-    justify-content: center;
-
-    .btn {
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      display: inline-block;
-      margin: 0 5px;
-      font-size: 20px;
-    }
-  }
-
   .color-palette {
     justify-content: center;
 
@@ -61,6 +47,21 @@
         opacity: 0;
         cursor: pointer;
       }
+    }
+  }
+
+  .controls {
+    padding: 0 10px;
+    margin: 10px auto;
+    justify-content: center;
+
+    .btn {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      display: inline-block;
+      margin: 0 5px;
+      font-size: 20px;
     }
   }
 }
