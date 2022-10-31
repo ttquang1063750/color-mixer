@@ -16,7 +16,8 @@ export class AppComponent {
     '#33cc00',
     '#008ae5',
     '#4b0082',
-    '#ee82ee',
+    '#ff00ab',
+    '#00edff',
     '#555555',
     '#ffffff',
     '#000000',
@@ -24,10 +25,35 @@ export class AppComponent {
 
   onChoose(color: string): void {
     this.colors.push(color);
+    this.playSound();
   }
 
   onChangePicker(color: string) {
     this.colors.push(color);
+    this.playSound();
+  }
+
+  playSound(): void {
+    try {
+      const audioContext = new AudioContext();
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+
+      gain.gain.exponentialRampToValueAtTime(0.00001, audioContext.currentTime + 0.5);
+      gain.connect(audioContext.destination);
+
+      oscillator.connect(gain);
+      oscillator.type = this.type;
+      oscillator.start(0);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  get type(): OscillatorType {
+    const types = ['sawtooth', 'sine', 'square', 'triangle'];
+    const index = Math.floor(Math.random() * types.length);
+    return types[index] as OscillatorType;
   }
 
   mix(): void {
