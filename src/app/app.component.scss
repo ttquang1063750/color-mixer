@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+
+  .title {
+    font: 400 64px/76px Google Sans,-apple-system,BlinkMacSystemFont,sans-serif;
+    letter-spacing: normal;
+    text-align: center;
+  }
+
+  .color-material {
+    width: calc(100% - 20px);
+    flex-grow: 1;
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin: 10px;
+
+    &__column {
+      padding: 0 10px;
+      flex: 1;
+    }
+  }
+
+  .controls {
+    padding: 0 10px;
+    justify-content: center;
+
+    .btn {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      display: inline-block;
+      margin: 0 5px;
+      font-size: 20px;
+    }
+  }
+
+  .color-palette {
+    justify-content: center;
+
+    &__btn {
+      position: relative;
+      width: 100px;
+      height: 60px;
+      margin: 10px;
+      border: 1px solid #c95e27;
+
+      svg {
+        height: 50%;
+        width: 50%;
+        position: absolute;
+        z-index: 1;
+      }
+
+      input {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
