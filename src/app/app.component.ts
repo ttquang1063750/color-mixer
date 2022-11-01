@@ -67,6 +67,7 @@ export class AppComponent {
     }
 
     this.colors = [source];
+    this.playSound();
   }
 
   reset(): void {
@@ -82,6 +83,7 @@ export class AppComponent {
     const h = event.container.element.nativeElement.offsetHeight;
     if (y >= h) {
       this.colors.splice(event.currentIndex, 1);
+      this.playSound();
     }
   }
 }
