@@ -79,9 +79,14 @@ export class AppComponent {
   }
 
   drop(event: CdkDragDrop<string[]>): void {
-    const y = Math.abs(event.distance.y);
-    const h = event.container.element.nativeElement.offsetHeight;
-    if (y >= h) {
+    const iY = event.item.element.nativeElement.offsetTop;
+    const iH = event.item.element.nativeElement.clientHeight;
+    const cY = event.container.element.nativeElement.offsetTop;
+    const cH = event.container.element.nativeElement.clientHeight;
+    const dy = event.distance.y;
+    const out = iY + dy >= cY + cH || dy + iH + iY <= cY;
+
+    if (out) {
       this.colors.splice(event.currentIndex, 1);
       this.playSound();
     }
